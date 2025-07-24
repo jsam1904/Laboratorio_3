@@ -4,7 +4,7 @@ abstract class Food(val name:String, val price:Double){
     abstract fun cook(): String
 }
 
-class Burguer(name:String, price:Double) : Food(name,price){
+class Burger(name:String, price:Double) : Food(name,price){
     override fun cook(): String{
         return "Asando la hamburgesa $name por unos 15 min, volteandolo durante el proceso"
     }
@@ -20,9 +20,9 @@ interface Dessert{
     fun eat(): String
 }
 
-class IceCream(name:String, price:Double) : Food(name,price){
+class IceCream(name:String, price:Double) : Food(name,price), Dessert{
     override fun cook(): String{
-        return "Se enfria el helado $name por unos 15 horas"
+        return "Se enfria el helado $name por unas 15 horas"
     }
     override fun eat(): String{
         return "Se come el helado $name en un cono"
@@ -39,7 +39,7 @@ class JuiceDrink(name:String, price:Double) : Drink(name,price){
     }
 
     override fun cook(): String {
-        return "Se exprime el jugo $name con las manos"
+        return "Se exprime el jugo $name con la fruta y lasmanos"
     }
 }
 
@@ -49,5 +49,13 @@ fun Food.discountPrice(discount:Double):Double{
 }
 
 fun main(){
+    val hamburgesa = Burger("Baconator", 50.0)
+    val pizza = Pizza("5 carnes", 60.0)
+    val helado = IceCream("Giga", 20.0)
+    val jugo = JuiceDrink("Uva", 20.0)
 
+    println(hamburgesa.cook())
+    println(pizza.cook())
+    println(helado.cook())
+    println(jugo.cook())
 }
