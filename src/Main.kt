@@ -12,7 +12,7 @@ class Burger(name:String, price:Double) : Food(name,price){
 
 class Pizza(name:String, price:Double) : Food(name,price){
     override fun cook(): String{
-        return "Cocinando la pizza $name hasta que "
+        return "Cocinando la pizza $name hasta que el queso se mire derretido"
     }
 }
 
@@ -48,14 +48,25 @@ fun Food.discountPrice(discount:Double):Double{
     return price - discountP
 }
 
-fun main(){
+fun main() {
     val hamburgesa = Burger("Baconator", 50.0)
     val pizza = Pizza("5 carnes", 60.0)
-    val helado = IceCream("Giga", 20.0)
+    val helado = IceCream("Napolitano", 20.0)
     val jugo = JuiceDrink("Uva", 20.0)
 
+    println("")
+    println("--------------Como se cocina--------------")
     println(hamburgesa.cook())
     println(pizza.cook())
     println(helado.cook())
     println(jugo.cook())
+
+    println("")
+    println("--------------Como se come--------------")
+    println(helado.eat())
+
+    println("")
+    println("--------------Descuento--------------")
+    val newprice = hamburgesa.discountPrice(50.0)
+    println("El precio de la hamburgesa ${hamburgesa.name} es Q$newprice")
 }
