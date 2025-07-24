@@ -29,6 +29,24 @@ class IceCream(name:String, price:Double) : Food(name,price){
     }
 }
 
+abstract class Drink(name:String, price:Double) : Food(name,price){
+    abstract fun pour(): String
+}
+
+class JuiceDrink(name:String, price:Double) : Drink(name,price){
+    override fun pour(): String{
+        return "Se hecha el jugo $name en un vaso"
+    }
+
+    override fun cook(): String {
+        return "Se exprime el jugo $name con las manos"
+    }
+}
+
+fun Food.discountPrice(discount:Double):Double{
+    val discountP = price * (discount / 100.0)
+    return price - discountP
+}
 
 fun main(){
 
