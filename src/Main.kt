@@ -16,6 +16,20 @@ class Pizza(name:String, price:Double) : Food(name,price){
     }
 }
 
+interface Dessert{
+    fun eat(): String
+}
+
+class IceCream(name:String, price:Double) : Food(name,price){
+    override fun cook(): String{
+        return "Se enfria el helado $name por unos 15 horas"
+    }
+    override fun eat(): String{
+        return "Se come el helado $name en un cono"
+    }
+}
+
+
 fun main(){
 
 }
